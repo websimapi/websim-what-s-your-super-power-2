@@ -1,0 +1,83 @@
+{
+  "database": {
+    "schema": {
+      "users": {
+        "id": {
+          "type": "text",
+          "description": "User ID"
+        },
+        "base_image_url": {
+          "type": "text",
+          "description": "Generated base avatar image URL"
+        },
+        "superpower_description": {
+          "type": "text",
+          "description": "What the user wants to be"
+        },
+        "evolution_level": {
+          "type": "integer",
+          "description": "User's current evolution level"
+        }
+      },
+      "datapoints": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique datapoint identifier"
+        },
+        "type": {
+          "type": "text",
+          "description": "Type of datapoint (energy, wisdom, chaos, etc.)"
+        },
+        "value": {
+          "type": "numeric",
+          "description": "Numeric value of the datapoint"
+        },
+        "metadata": {
+          "type": "jsonb",
+          "description": "Additional datapoint properties"
+        },
+        "rarity": {
+          "type": "text",
+          "description": "common, rare, epic, legendary"
+        }
+      },
+      "user_datapoints": {
+        "id": {
+          "type": "text",
+          "description": "user_id + datapoint_id for uniqueness"
+        },
+        "datapoint_id": {
+          "type": "uuid",
+          "description": "Reference to datapoint"
+        },
+        "visual_intensity": {
+          "type": "numeric",
+          "description": "How strongly this datapoint affects visuals"
+        },
+        "acquired_at": {
+          "type": "timestamptz",
+          "description": "When user acquired this datapoint"
+        }
+      },
+      "generation_queue": {
+        "id": {
+          "type": "uuid",
+          "description": "Queue entry ID"
+        },
+        "status": {
+          "type": "text",
+          "description": "pending, processing, completed"
+        },
+        "generation_type": {
+          "type": "text",
+          "description": "datapoint, evolution, visual_effect"
+        },
+        "target_user_id": {
+          "type": "text",
+          "description": "User this generation is for"
+        }
+      }
+    }
+  }
+}
+
